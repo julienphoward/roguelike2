@@ -5,6 +5,9 @@ class_name Enemy
 @onready var player: CharacterBody2D = get_tree().current_scene.get_node("Player")
 
 func _ready() -> void:
+	acceleration = 20
+	max_speed = 50
+	add_collision_exception_with(get_tree().current_scene.get_node("Player"))
 	await get_tree().physics_frame
 	nav_agent.target_position = player.global_position
 

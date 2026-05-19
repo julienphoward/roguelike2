@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bj5ick8gfclcj" path="res://Characters/Player/finite_state_machine.gd" id="3_osktb"]
 [ext_resource type="Texture2D" uid="uid://c7lb5iiocnyxk" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/weapon_sword_1.png" id="6_osktb"]
 [ext_resource type="Texture2D" uid="uid://cy8y2xld8b4lu" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_spritesheet.png" id="7_7vev3"]
+[ext_resource type="Script" uid="uid://bfa1v853ltnc6" path="res://hitbox.gd" id="7_klx3t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xf5fp"]
 atlas = ExtResource("2_cue0d")
@@ -170,6 +171,10 @@ _data = {
 &"idle": SubResource("Animation_hvtal")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7vev3"]
+radius = 2.0
+height = 16.0
+
 [sub_resource type="Animation" id="Animation_osktb"]
 length = 0.001
 tracks/0/type = "value"
@@ -220,6 +225,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Node2D/Sprite2D/Hitbox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_7vev3"]
 resource_name = "attack"
@@ -244,10 +261,10 @@ tracks/1/path = NodePath("Node2D/Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.15),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [-0.7853982, 0.6981317, 0.87266463]
+"values": [-0.7853982, 0.6981317, 0.87266463, -0.7853982]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -273,6 +290,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [0, 1, 2]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Node2D/Sprite2D/Hitbox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_klx3t"]
 _data = {
@@ -281,7 +310,6 @@ _data = {
 }
 
 [node name="Player" unique_id=1626084505 instance=ExtResource("1_6xdwp")]
-position = Vector2(10, 10)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("2_xf5fp")
@@ -310,6 +338,17 @@ position = Vector2(7, 3)
 rotation = -0.7853982
 texture = ExtResource("6_osktb")
 offset = Vector2(5, -4)
+
+[node name="Hitbox" type="Area2D" parent="Sword/Node2D/Sprite2D" index="0" unique_id=1833004848]
+position = Vector2(-1.685874e-07, 1.6858738e-07)
+collision_layer = 0
+collision_mask = 5
+script = ExtResource("7_klx3t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/Node2D/Sprite2D/Hitbox" index="0" unique_id=1143450870]
+position = Vector2(4.949748, -3.5355334)
+rotation = 0.7853982
+shape = SubResource("CapsuleShape2D_7vev3")
 
 [node name="SlashSprite" type="Sprite2D" parent="Sword" index="1" unique_id=62601635]
 position = Vector2(18, 0)

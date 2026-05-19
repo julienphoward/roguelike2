@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cv4ub5h6n0bc5" path="res://Characters/FSM.gd" id="2_ticvp"]
 
 [node name="Character" type="CharacterBody2D" unique_id=1626084505]
+collision_layer = 0
 script = ExtResource("1_acr0g")
 
 [node name="FiniteStateMachine" type="Node" parent="." unique_id=1105642010]
