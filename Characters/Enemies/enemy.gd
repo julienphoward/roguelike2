@@ -12,10 +12,11 @@ func _ready() -> void:
 	nav_agent.target_position = player.global_position
 
 func chase() -> void:
-	print("chasing, player pos: ", player.global_position)
-	print("target pos: ", nav_agent.target_position)
-	print("next path pos: ", nav_agent.get_next_path_position())
-	print("my pos: ", global_position)
+	var dist = global_position.distance_to(player.global_position)
+	if dist < 10:
+		mov_direction = Vector2.ZERO
+		return
+	
 	if nav_agent.is_navigation_finished():
 		return
 	
@@ -28,6 +29,7 @@ func chase() -> void:
 		animated_sprite.flip_h = false
 	elif vector_to_next_point.x < 0 and not animated_sprite.flip_h:
 		animated_sprite.flip_h = true
-
 func _on_path_timer_timeout() -> void:
-	nav_agent.target_position = player.global_position
+	var dist = global_position.distance_to(player.global_position)
+	if dist > 5:
+		nav_agent.target_position = player.global_position
