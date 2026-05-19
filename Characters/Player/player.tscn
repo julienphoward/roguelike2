@@ -281,7 +281,7 @@ _data = {
 }
 
 [node name="Player" unique_id=1626084505 instance=ExtResource("1_6xdwp")]
-position = Vector2(1, 1)
+position = Vector2(10, 10)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("2_xf5fp")
