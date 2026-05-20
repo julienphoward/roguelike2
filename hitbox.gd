@@ -16,7 +16,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage"):
 		body.take_damage(damage, knockback_direction, knockback_force)
 
-func _on_area_entered(area: Node2D) -> void:
-	print("AREA: ", area.name)
+func _on_area_entered(_area: Node2D) -> void:
+	pass
+
 func _process(_delta: float) -> void:
-	print("disabled: ", collision_shape.disabled, " monitoring: ", monitoring)
+	pass

@@ -90,7 +90,16 @@ layer_0/tile_data = PackedInt32Array(0, 196608, 1, 65536, 196608, 1, 131072, 196
 zoom = Vector2(3, 3)
 
 [node name="FlyingCreature" parent="." unique_id=424318889 instance=ExtResource("4_fc0e3")]
+position = Vector2(131, 107)
 collision_layer = 1
 collision_mask = 1
-acceleration = 40
-max_speed = 100
+
+[node name="FlyingCreature2" parent="." unique_id=403757204 instance=ExtResource("4_fc0e3")]
+position = Vector2(180, 177)
+collision_layer = 1
+collision_mask = 1
+
+[node name="FlyingCreature3" parent="." unique_id=1936791002 instance=ExtResource("4_fc0e3")]
+position = Vector2(56, 104)
+collision_layer = 1
+collision_mask = 1

@@ -5,9 +5,42 @@
 [ext_resource type="Script" uid="uid://dd8ass0gfrpsj" path="res://Characters/Player/player.gd" id="2_xf5fp"]
 [ext_resource type="Texture2D" uid="uid://dpqs3xr32hd2f" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png" id="3_bqsbk"]
 [ext_resource type="Script" uid="uid://bj5ick8gfclcj" path="res://Characters/Player/finite_state_machine.gd" id="3_osktb"]
+[ext_resource type="Texture2D" uid="uid://ch8ss1xh2ex1n" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_spritesheet.png" id="4_r5ew0"]
 [ext_resource type="Texture2D" uid="uid://c7lb5iiocnyxk" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/weapon_sword_1.png" id="6_osktb"]
 [ext_resource type="Texture2D" uid="uid://cy8y2xld8b4lu" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_spritesheet.png" id="7_7vev3"]
 [ext_resource type="Script" uid="uid://bfa1v853ltnc6" path="res://hitbox.gd" id="7_klx3t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5elsd"]
+atlas = ExtResource("4_r5ew0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blwrb"]
+atlas = ExtResource("4_r5ew0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvtal"]
+atlas = ExtResource("4_r5ew0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fwmd"]
+atlas = ExtResource("4_r5ew0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jec2i"]
+atlas = ExtResource("4_r5ew0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpgn3"]
+atlas = ExtResource("4_r5ew0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ip0i"]
+atlas = ExtResource("4_r5ew0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jopl"]
+atlas = ExtResource("4_r5ew0")
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xf5fp"]
 atlas = ExtResource("2_cue0d")
@@ -59,6 +92,40 @@ region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5elsd"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5elsd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blwrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvtal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fwmd")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jec2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpgn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ip0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jopl")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xf5fp")
@@ -135,10 +202,108 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_r5ew0"]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"idle", &"dead"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
 
 [sub_resource type="Animation" id="Animation_klx3t"]
 resource_name = "hurt"
 length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_hvtal"]
 resource_name = "idle"
@@ -172,6 +337,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8fwmd"]
 _data = {
 &"RESET": SubResource("Animation_blwrb"),
+&"dead": SubResource("Animation_r5ew0"),
 &"hurt": SubResource("Animation_klx3t"),
 &"idle": SubResource("Animation_hvtal")
 }
@@ -216,7 +382,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -240,7 +406,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_7vev3"]
@@ -354,8 +520,10 @@ script = ExtResource("7_klx3t")
 position = Vector2(4.949748, -3.5355334)
 rotation = 0.7853982
 shape = SubResource("CapsuleShape2D_7vev3")
+disabled = true
 
 [node name="SlashSprite" type="Sprite2D" parent="Sword" index="1" unique_id=62601635]
+visible = false
 position = Vector2(18, 0)
 texture = ExtResource("7_7vev3")
 hframes = 3
