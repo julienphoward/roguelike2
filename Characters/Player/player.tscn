@@ -136,6 +136,10 @@ tracks/1/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_klx3t"]
+resource_name = "hurt"
+length = 0.6
+
 [sub_resource type="Animation" id="Animation_hvtal"]
 resource_name = "idle"
 length = 0.7
@@ -168,6 +172,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8fwmd"]
 _data = {
 &"RESET": SubResource("Animation_blwrb"),
+&"hurt": SubResource("Animation_klx3t"),
 &"idle": SubResource("Animation_hvtal")
 }
 

@@ -3,7 +3,7 @@ extends FiniteStateMachine
 func _init() -> void:
 	_add_state("chase")
 	_add_state("hurt")
-
+	_add_state("dead")
 
 func _ready() -> void:
 	set_state(states.chase)
@@ -26,3 +26,5 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 			get_parent().get_node("AnimationPlayer").play("fly")
 		states.hurt:
 			get_parent().get_node("AnimationPlayer").play("hurt")
+		states.dead:
+			get_parent().get_node("AnimationPlayer").play("dead")
