@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b61264fgybwes" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png" id="1_m6a5l"]
 [ext_resource type="PackedScene" uid="uid://c1wbhwbjv1uw4" path="res://Characters/Player/player.tscn" id="2_o1ta2"]
+[ext_resource type="Texture2D" uid="uid://dmbjo6evxcbes" path="res://art/Original Art/LightGunRight.png" id="3_o1ta2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ikea"]
 texture = ExtResource("1_m6a5l")
@@ -187,6 +188,17 @@ hp = 4
 [node name="Camera2D" type="Camera2D" parent="NavigationAgent2D/TileMap/Player" unique_id=1438840156]
 position = Vector2(0, 3)
 zoom = Vector2(3, 3)
+
+[node name="BulletSpawn" type="Marker2D" parent="NavigationAgent2D/TileMap/Player" unique_id=314207654]
+
+[node name="Gun" type="Node2D" parent="NavigationAgent2D/TileMap/Player" unique_id=891568577]
+position = Vector2(0, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="NavigationAgent2D/TileMap/Player/Gun" unique_id=906409086]
+position = Vector2(8, 3.0000045)
+rotation = -6.2831855
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_o1ta2")
 
 [node name="TileMap2" type="TileMap" parent="NavigationAgent2D" unique_id=1567710986]
 tile_set = SubResource("TileSet_4ikea")
