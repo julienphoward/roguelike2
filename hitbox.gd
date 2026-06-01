@@ -15,6 +15,8 @@ func _on_body_entered(body: Node2D) -> void:
 	print("BODY: ", body.name)
 	if body.has_method("take_damage"):
 		body.take_damage(damage, knockback_direction, knockback_force)
+		
+		print("HIT ENEMY! DAMAGE:", damage)
 
 func _on_area_entered(_area: Node2D) -> void:
 	pass

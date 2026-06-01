@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bvm44mj34ijl5" path="res://game.gd" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://c1wbhwbjv1uw4" path="res://Characters/Player/player.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://bb3mwe4v6oinc" path="res://Characters/Enemies/FlyingCreature/flying_creature.tscn" id="4_fc0e3"]
+[ext_resource type="Texture2D" uid="uid://dmbjo6evxcbes" path="res://art/Original Art/LightGunRight.png" id="4_j5wjh"]
 [ext_resource type="Texture2D" uid="uid://b8bytin5xcwys" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/health_ui.png" id="5_7jktm"]
 [ext_resource type="Script" uid="uid://cdkku3tkc2bbc" path="res://ui.gd" id="5_eow3j"]
 [ext_resource type="Texture2D" uid="uid://clxuc1pkc15q8" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/progress bar.png" id="7_j5wjh"]
@@ -92,6 +93,16 @@ hp = 4
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1989792012]
 zoom = Vector2(3, 3)
+
+[node name="BulletSpawn" type="Marker2D" parent="Player" unique_id=703697071]
+
+[node name="Gun" type="Node2D" parent="Player" unique_id=275285335]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Gun" unique_id=1067888723]
+position = Vector2(10, 6.105)
+rotation = -6.2831855
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_j5wjh")
 
 [node name="FlyingCreature" parent="." unique_id=424318889 instance=ExtResource("4_fc0e3")]
 position = Vector2(131, 107)
