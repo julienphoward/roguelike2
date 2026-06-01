@@ -26,6 +26,14 @@ func _process(_delta: float) -> void:
 		sword.scale.y = -1
 	elif sword.scale.y == -1 and mouse_direction.x > 0:
 		sword.scale.y = 1
+		
+	if gun_equipped:
+		gun.rotation = mouse_direction.angle()
+	
+	if mouse_direction.x < 0:
+		gun.scale.y = -1
+	else: 
+		gun.scale.y = 1
 	
 func get_input() -> void:
 	mov_direction = Vector2.ZERO
