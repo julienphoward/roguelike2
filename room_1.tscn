@@ -1,7 +1,14 @@
 [gd_scene format=3 uid="uid://d08uc1nhon8qt"]
 
 [ext_resource type="Texture2D" uid="uid://b61264fgybwes" path="res://art/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png" id="1_3t5sg"]
+[ext_resource type="Script" uid="uid://c6dx0y0aquici" path="res://room_1.gd" id="1_is5ow"]
 [ext_resource type="PackedScene" uid="uid://c1wbhwbjv1uw4" path="res://Characters/Player/player.tscn" id="2_4ikea"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_is5ow"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ikea"]
 texture = ExtResource("1_3t5sg")
@@ -20,29 +27,48 @@ texture = ExtResource("1_3t5sg")
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
+2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is5ow")
 3:1/0 = 0
+3:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is5ow")
 4:1/0 = 0
 5:1/0 = 0
 5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:1/0 = 0
+6:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is5ow")
 7:1/0 = 0
+7:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is5ow")
 8:1/0 = 0
+8:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is5ow")
 0:2/0 = 0
+0:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is5ow")
 1:2/0 = 0
+1:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is5ow")
 2:2/0 = 0
+2:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is5ow")
 3:2/0 = 0
+3:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is5ow")
 4:2/0 = 0
+4:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is5ow")
 5:2/0 = 0
+5:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is5ow")
 6:2/0 = 0
+6:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is5ow")
 8:2/0 = 0
+8:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is5ow")
 0:3/0 = 0
 1:3/0 = 0
 2:3/0 = 0
+2:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is5ow")
 3:3/0 = 0
+3:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is5ow")
 4:3/0 = 0
+4:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is5ow")
 5:3/0 = 0
+5:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is5ow")
 6:3/0 = 0
+6:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is5ow")
 8:3/0 = 0
+8:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_is5ow")
 3:4/0 = 0
 3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:4/0 = 0
@@ -172,6 +198,7 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_3t5sg")
 
 [node name="Room1" type="Node2D" unique_id=689790848]
+script = ExtResource("1_is5ow")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1827630076]
 
@@ -204,3 +231,5 @@ layer_0/tile_data = PackedInt32Array(458752, 131072, 7, 458753, 131072, 7, 45875
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1288244165]
 position = Vector2(-1, -1)
 zoom = Vector2(3, 3)
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
