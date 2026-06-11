@@ -287,6 +287,7 @@ _data = {
 radius = 4.0
 
 [node name="FlyingCreature" unique_id=1626084505 groups=["enemies"] instance=ExtResource("1_8nphp")]
+z_index = 1
 script = ExtResource("2_md1h7")
 
 [node name="FiniteStateMachine" parent="." index="0" unique_id=1105642010]

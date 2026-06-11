@@ -12,6 +12,7 @@ func _ready() -> void:
 	max_speed = 50
 	add_collision_exception_with(get_tree().current_scene.get_node("Player"))
 	await get_tree().physics_frame
+	await get_tree().physics_frame
 	var p = get_tree().current_scene.get_node("Player")
 	if is_instance_valid(p):
 		add_collision_exception_with(p)

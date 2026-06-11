@@ -1,6 +1,8 @@
 extends Node2D
 
 func _init() -> void:
+	randomize()
+	
 	var screen_size: Vector2 = DisplayServer.screen_get_size()
 	var window_size: Vector2 = DisplayServer.window_get_size()
 	

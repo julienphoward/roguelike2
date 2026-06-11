@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b8t0iy4gdhedj"]
+
+[ext_resource type="Script" uid="uid://fcridlp0icyh" path="res://Rooms/end_screen.gd" id="1_a0ko0"]
+
+[node name="end_screen" type="Control" unique_id=681141438]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_a0ko0")
+
+[node name="Reset" type="Label" parent="." unique_id=1008115862]
+z_index = 9
+layout_mode = 0
+offset_left = 261.0
+offset_top = 302.0
+offset_right = 354.0
+offset_bottom = 343.0
+text = "Reset Game"
+
+[node name="RestartButton" type="Button" parent="." unique_id=192957833]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 294.0
+offset_right = 354.0
+offset_bottom = 336.0
+
+[node name="QuitButton" type="Button" parent="." unique_id=1532846390]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 294.0
+offset_right = 457.0
+offset_bottom = 336.0
+
+[node name="Quit2" type="Label" parent="." unique_id=1302084937]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 302.0
+offset_right = 463.0
+offset_bottom = 344.0
+text = "Quit Game"
+
+[node name="Victory" type="Label" parent="." unique_id=1819897127]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 201.0
+offset_right = 591.0
+offset_bottom = 324.0
+text = "VICTORY!"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
