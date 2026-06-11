@@ -25,13 +25,13 @@ texture_over = ExtResource("5_7jktm")
 texture_progress = ExtResource("7_j5wjh")
 tint_progress = Color(0.60784316, 0, 0, 1)
 
-[node name="Player" parent="." unique_id=1626084505 groups=["player"] instance=ExtResource("2_e2o6t")]
+[node name="Player" parent="." unique_id=1626084505 instance=ExtResource("2_e2o6t")]
 z_index = 1
 position = Vector2(258, 180)
 hp = 4
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1989792012]
-zoom = Vector2(3, 3)
+zoom = Vector2(0.5, 0.5)
 
 [node name="BulletSpawn" type="Marker2D" parent="Player" unique_id=703697071]
 

@@ -8,7 +8,7 @@ const ENEMY_SCENES: Dictionary = {
 
 var num_enemies: int
 
-@onready var tilemap: TileMap = get_node("NavigationAgent2D/TileMap2")
+@onready var tilemap: TileMap = get_node("TileMap2")
 @onready var entrance: Node2D = get_node("Entrance")
 @onready var door_container: Node2D = get_node("Doors")
 @onready var enemy_positions_container: Node2D = get_node("Enemy Positions")
@@ -37,7 +37,7 @@ func _spawn_enemies() -> void:
 		print("spawning at: ", enemy_position.global_position)
 		var enemy: CharacterBody2D = ENEMY_SCENES["FLYING_CREATURE"].instantiate()
 		enemy.tree_exited.connect(_on_enemy_killed)
-		enemy.global_position = enemy_position.global_position
+		enemy.position = enemy_position.position
 		call_deferred("add_child", enemy)
 
 		var spawn_explosion: AnimatedSprite2D = SPAWN_EXPLOSION_SCENE.instantiate()
