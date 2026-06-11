@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://6pi6offf3om3" path="res://Rooms/room_1.tscn" id="1_p0t4u"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_p0t4u"]
+
 [node name="Spawn Room" unique_id=689790848 instance=ExtResource("1_p0t4u")]
 
 [node name="Marker2D" parent="Enemy Positions" parent_id_path=PackedInt32Array(868124392) index="0" unique_id=754905642]
@@ -21,3 +23,11 @@ layer_0/tile_data = PackedInt32Array(0, 458752, 4, 1, 458752, 4, 65538, 458752, 
 
 [node name="TileMap2" parent="." index="7" unique_id=1567710986]
 layer_0/tile_data = PackedInt32Array(327679, 131072, 7, 262145, 131072, 7, 262144, 131072, 7, 262148, 131072, 7, 262149, 131072, 7, 262150, 131072, 7, 262151, 131072, 7, 327678, 131072, 7, 589823, 131072, 7, 524288, 131072, 7, 524289, 131072, 7, 524290, 131072, 7, 524291, 131072, 7, 524292, 131072, 7, 524293, 131072, 7, 524294, 131072, 7, 262146, 458752, 6, 262147, 524288, 6, 6, 196608, 0, 65535, 196608, 0, 327685, 262144, 1, 524287, 327680, 1)
+
+[node name="Label" type="Label" parent="." index="8" unique_id=2144010996]
+offset_left = -53.0
+offset_top = 144.0
+offset_right = 152.0
+offset_bottom = 167.0
+text = "Press E to Change Weapon"
+label_settings = SubResource("LabelSettings_p0t4u")
