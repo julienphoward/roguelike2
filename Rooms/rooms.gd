@@ -36,24 +36,19 @@ func _spawn_rooms() -> void:
 				
 			var previous_room_tilemap: TileMap = previous_room.get_node("TileMap")
 			var previous_room_door: StaticBody2D = previous_room.get_node("Doors/Door")
-			var exit_tile_pos: Vector2i = previous_room_tilemap.local_to_map(previous_room_door.position) + Vector2i.UP * 2
+			var exit_tile_pos: Vector2i = previous_room_tilemap.local_to_map(previous_room_door.position)
 			
 			var corridor_height: int = randi() % 5 + 2
-			for y in corridor_height:
-				var target_y: float = -y + 2
-				previous_room_tilemap.set_cell(0, exit_tile_pos + Vector2i(-3, -y + 2), 0, LEFT_WALL_TILE_INDEX)
-				previous_room_tilemap.set_cell(0, exit_tile_pos + Vector2i(-2, -y + 2), 0, FLOOR_TILE_INDEX)
-				previous_room_tilemap.set_cell(0, exit_tile_pos + Vector2i(-1, -y + 2), 0, FLOOR_TILE_INDEX)
-				previous_room_tilemap.set_cell(0, exit_tile_pos + Vector2i(0, -y + 2), 0, RIGHT_WALL_TILE_INDEX)
+			for y in corridor_height - 2:
+				previous_room_tilemap.set_cell(0, exit_tile_pos + Vector2i(-3, -y), 0, LEFT_WALL_TILE_INDEX)
+				previous_room_tilemap.set_cell(0, exit_tile_pos + Vector2i(-2, -y), 0, FLOOR_TILE_INDEX)
+				previous_room_tilemap.set_cell(0, exit_tile_pos + Vector2i(-1, -y), 0, FLOOR_TILE_INDEX)
+				previous_room_tilemap.set_cell(0, exit_tile_pos + Vector2i(0, -y), 0, RIGHT_WALL_TILE_INDEX)
 				
-			var room_tilemap: TileMap = room.get_node("TileMap")
 			var entrance: Marker2D = room.get_node("Entrance/Marker2D2")
-			
-			var doors = previous_room.get_node("Doors")
 
 			var target_position = previous_room_door.global_position + Vector2.UP * corridor_height * TILE_SIZE
 			add_child(room)
 			var entrance_offset = entrance.global_position - room.global_position
 			room.global_position = target_position - entrance_offset + Vector2.DOWN * TILE_SIZE
-			var tilemap = room.get_node("TileMap")
 			previous_room = room
